@@ -12,7 +12,7 @@ The purpose of this project is to build an interactive calendar using jQuery and
 This web application will provide a calendar that the user can utilize to schedule tasks for the workday (using standard American work hours from 8am to 5pm). Using data persistence and local storage, the user will be able to go back to the calendar at a later time and either add or delete calendar events. The application will also color code each hourly row depending on if the local time is before, during, or after the specified hour.
 
 ## Tasks to Complete the Job :white_check_mark:
-- [ ] Display the current day upon opening the calendar
+- [x] Display the current day upon opening the calendar
 - [ ] Present time blocks for each hour, from 8pm to 5am
 - [ ] Color code time blocks depending on the current time relative to the hour block
 - [ ] Allow user to enter an event, and save that event to storage 
