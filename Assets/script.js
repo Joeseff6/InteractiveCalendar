@@ -1,3 +1,3 @@
 var date = dayjs().format('dddd D, YYYY');
-console.log(date);
-$(`#currentDay`).text(`Today's date is ${date}`);
+var currentTime = dayjs().format('hh:mmA');
+$(`#currentDay`).text(`Today's date is ${date}, and the time at page refresh is ${currentTime}.`);
