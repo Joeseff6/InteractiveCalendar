@@ -3,14 +3,29 @@ const date = dayjs().format('dddd D, YYYY');
 const currentTime = dayjs().format('hh:mmA');
 const timeForm = $(`[class='row']`);
 const saveBtn = $(`[class='saveBtn']`)
+const currentHour = parseInt(dayjs().format('H'));
 
-dayjs.extend(objectSupport)
 
+var loggedEvents = [];
 
 // Create blank array for logged events
 for (let i = 0; i < 9; i++) {
     loggedEvents.push("")
 }
+
+
+let iterator = 0
+for (let i = 9; i < 18; i++) {
+    if (i < currentHour) {
+        $(`[data-row=${iterator}]`).addClass(`past`);
+    } else if (i === currentHour){
+        $(`[data-row=${iterator}]`).addClass(`present`);
+    } else {
+        $(`[data-row=${iterator}]`).addClass(`future`);
+    }
+    iterator++
+}
+
 
 // Retrieve stored events for data persistence on page refresh
 getStoredEvents()
@@ -39,7 +54,6 @@ saveBtn.click(function(event) {
 
 function getStoredEvents() {
     var storedEvents = JSON.parse(localStorage.getItem(`Logged Events`))
-    console.log(storedEvents)
 
     if (storedEvents !== null) {
         loggedEvents = storedEvents
@@ -55,4 +69,7 @@ function rendorStoredEvents() {
     }
 }
 
-dayjs.extend(objectSupport)
+
+
+
+console.log(currentHour)
