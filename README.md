@@ -2,8 +2,7 @@
 A calendar used for scheduling
 ## Link to My Deployed Application
 
-*Insert Link to application here*
-
+https://joeseff6.github.io/InteractiveCalendar/
 ## Project Description
 
 The purpose of this project is to build an interactive calendar using jQuery and javascript libraries.
@@ -14,14 +13,15 @@ This web application will provide a calendar that the user can utilize to schedu
 ## Tasks to Complete the Job :white_check_mark:
 - [x] Display the current day upon opening the calendar
 - [x] Present time blocks each hour, from 9am to 5pm
-- [ ] Color code time blocks depending on the current time relative to the hour block
+- [x] Color code time blocks depending on the current time relative to the hour block
 - [x] Allow user to enter an event, and save that event to storage 
 - [x] Ensure the events are saved to persist after page refresh
 
 ## Future Releases
 
-* 
+* Have rows change color based on current hour without having to refresh page
+
 ### Screenshots
 
-![First img]()
+![Screenshot of the calendar](./Assets/Images/Capture1.PNG)
 
