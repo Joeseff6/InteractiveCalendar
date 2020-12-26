@@ -13,10 +13,10 @@ This web application will provide a calendar that the user can utilize to schedu
 
 ## Tasks to Complete the Job :white_check_mark:
 - [x] Display the current day upon opening the calendar
-- [ ] Present time blocks each hour, from 9am to 5pm
+- [x] Present time blocks each hour, from 9am to 5pm
 - [ ] Color code time blocks depending on the current time relative to the hour block
-- [ ] Allow user to enter an event, and save that event to storage 
-- [ ] Ensure the events are saved to persist after page refresh
+- [x] Allow user to enter an event, and save that event to storage 
+- [x] Ensure the events are saved to persist after page refresh
 
 ## Future Releases
 
