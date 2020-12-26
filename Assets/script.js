@@ -1,18 +1,21 @@
 // Variables made using Day.js via CDN
-const date = dayjs().format('dddd D, YYYY');
-const currentTime = dayjs().format('hh:mmA');
+var date = dayjs().format('dddd D, YYYY');
+var currentTime = dayjs().format('hh:mmA');
 const timeForm = $(`[class='row']`);
 const saveBtn = $(`[class='saveBtn']`)
-const currentHour = parseInt(dayjs().format('H'));
+var currentHour = parseInt(dayjs().format('H'));
 
+// Changing text content of the currentDay ID element to the current date and time
+$(`#currentDay`).text(`Today's date is ${date}, and the time is ${currentTime}`);
 
-var loggedEvents = [];
+refreshTime()
 
-// Create blank array for logged events
-for (let i = 0; i < 9; i++) {
-    loggedEvents.push("")
+function refreshTime() {
+    setInterval(function() {
+        currentTime = dayjs().format('hh:mmA');
+        $(`#currentDay`).text(`Today's date is ${date}, and the time is ${currentTime}`)
+    }, 1000)
 }
-
 
 let iterator = 0
 for (let i = 9; i < 18; i++) {
@@ -27,17 +30,25 @@ for (let i = 9; i < 18; i++) {
 }
 
 
+var loggedEvents = [];
+
+// Create blank array for logged events
+for (let i = 0; i < 9; i++) {
+    loggedEvents.push("")
+}
+
 // Retrieve stored events for data persistence on page refresh
 getStoredEvents()
 
-// Changing text content of the currentDay ID element to the current date and time
-$(`#currentDay`).text(`Today's date is ${date}, and the time at page refresh is ${currentTime}`);
 
 
 saveBtn.click(function(event) {
     // Grabs an index based on the save button's data-index number
     var buttonClicked = event.target
     var buttonIndex = buttonClicked.dataset.index
+    $(`[data-index=${buttonIndex}]`).text(`Event Saved!`)
+    changeSaveText()
+
 
     loggedEvents[buttonIndex] = $(`[data-row=${buttonIndex}]`).val();
 
@@ -49,6 +60,17 @@ saveBtn.click(function(event) {
 
     function storeEvent() {
         localStorage.setItem(`Logged Events`, JSON.stringify(loggedEvents));
+    }
+
+    function changeSaveText() {
+        var textTimer = 2;
+        var textInterval = setInterval(function() {
+            textTimer--
+            if (textTimer === 0) {
+                clearInterval(textInterval)
+                $(`[data-index=${buttonIndex}]`).text(`Save Event`)
+            }
+        }, 1000)
     }
 })
 
@@ -70,6 +92,3 @@ function rendorStoredEvents() {
 }
 
 
-
-
-console.log(currentHour)
