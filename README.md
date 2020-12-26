@@ -20,6 +20,7 @@ This web application will provide a calendar that the user can utilize to schedu
 ## Future Releases
 
 * Have rows change color based on current hour without having to refresh page
+* Add button to clear events
 
 ### Screenshots
 
