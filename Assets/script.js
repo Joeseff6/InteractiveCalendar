@@ -1,6 +1,6 @@
 // Variables made using Day.js via CDN
-var date = dayjs().format('dddd D, YYYY');
-var currentTime = dayjs().format('hh:mmA');
+var date = dayjs().format('MMMM D, YYYY');
+var currentTime = dayjs().format('h:mmA');
 var currentHour = parseInt(dayjs().format('H'));
 
 // Other variables made for application using jQuery
@@ -39,7 +39,7 @@ refreshTime()
 // Function to refresh time per second to update time live
 function refreshTime() {
     setInterval(function() {
-        currentTime = dayjs().format('hh:mmA');
+        currentTime = dayjs().format('h:mmA');
         $(`#currentDay`).text(`Today's date is ${date}, and the time is ${currentTime}`)
     }, 1000)
 }
