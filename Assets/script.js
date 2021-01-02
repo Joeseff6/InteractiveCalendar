@@ -4,8 +4,8 @@ var currentTime = dayjs().format('h:mmA');
 var currentHour = parseInt(dayjs().format('H'));
 
 // Other variables made for application using jQuery
-const timeForm = $(`[class='row']`);
-const saveBtn = $(`[class='saveBtn']`)
+const timeForm = $(`[class='row time-block']`);
+const saveBtn = $(`[class='col-2 saveBtn']`)
 var loggedEvents = [];
 
 // Create blank array for logged events
@@ -67,9 +67,9 @@ saveBtn.click(function(event) {
 
     // Submits user value to store into local storage
     timeForm.submit(function(event) {
+        event.preventDefault()
         // Assign user value the logged events array based on button clicked
         loggedEvents[buttonIndex] = $(`[data-row=${buttonIndex}]`).val();
-        event.preventDefault()
         storeEvent()
     })
 
