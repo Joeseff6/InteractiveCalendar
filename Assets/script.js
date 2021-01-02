@@ -6,12 +6,8 @@ var currentHour = parseInt(dayjs().format('H'));
 // Other variables made for application using jQuery
 const timeForm = $(`[class='row time-block']`);
 const saveBtn = $(`[class='col-2 saveBtn']`);
+const clearBtn = $(`#clearBtn`);
 var loggedEvents = [];
-
-// Create blank array for logged events
-for (let i = 0; i < 9; i++) {
-    loggedEvents.push("");
-}
 
 getStoredEvents();
 
@@ -25,6 +21,7 @@ function rendorStoredEvents() {
 // Function to retrieve stored events upon page open
 function getStoredEvents() {
     var storedEvents = JSON.parse(localStorage.getItem(`Logged Events`));
+    console.log(storedEvents)
     if (storedEvents !== null) {
         loggedEvents = storedEvents;
     }
@@ -56,6 +53,15 @@ for (let i = 9; i < 18; i++) {
     }
     iterator++;
 }
+
+
+clearBtn.click(function() {
+    loggedEvents = [];
+    localStorage.setItem(`Logged Events`, JSON.stringify(loggedEvents));
+    for (let i = 0; i < 9; i++) {
+        $(`[data-row=${i}]`).val(loggedEvents);
+    }
+})
 
 // Add functionality for when the save button is clicked
 saveBtn.click(function(event) {
