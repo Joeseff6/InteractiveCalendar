@@ -11,6 +11,15 @@ var loggedEvents = [];
 
 getStoredEvents();
 
+// Function to retrieve stored events upon page open
+function getStoredEvents() {
+    var storedEvents = JSON.parse(localStorage.getItem(`Logged Events`));
+    if (storedEvents !== null) {
+        loggedEvents = storedEvents;
+    }
+    rendorStoredEvents();
+}
+
 // Function to rendor local storage for data persistence
 function rendorStoredEvents() {
     for (let i = 0; i < 9; i++) {
@@ -18,15 +27,6 @@ function rendorStoredEvents() {
     }
 }
 
-// Function to retrieve stored events upon page open
-function getStoredEvents() {
-    var storedEvents = JSON.parse(localStorage.getItem(`Logged Events`));
-    console.log(storedEvents)
-    if (storedEvents !== null) {
-        loggedEvents = storedEvents;
-    }
-    rendorStoredEvents();
-}
 
 // Changing text content to display current day and time
 $(`#currentDay`).text(`Today's date is ${date}, and the time is ${currentTime}`);
@@ -54,14 +54,13 @@ for (let i = 9; i < 18; i++) {
     iterator++;
 }
 
-
 clearBtn.click(function() {
     loggedEvents = [];
     localStorage.setItem(`Logged Events`, JSON.stringify(loggedEvents));
     for (let i = 0; i < 9; i++) {
         $(`[data-row=${i}]`).val(loggedEvents);
     }
-})
+});
 
 // Add functionality for when the save button is clicked
 saveBtn.click(function(event) {
