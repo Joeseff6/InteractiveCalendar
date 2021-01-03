@@ -1,9 +1,0 @@
-- Add time blocks for each hour
-    - Create form with 10 rows to input information
-        - List hours row for row from 8am to 5pm
-        - Allow user to input text of events
-        - Add SUBMIT BUTTON to save text value to local storage
-
-- Display current day at the top of the webpage in the jumbotron
-    - Use the currentDay ID $("#currentDay") to grab the element and insert text .text()
-        -   For the date, we will use Day.js, create a variable named day, and display it
